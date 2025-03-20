@@ -88,7 +88,7 @@ is reserved for attestation keys.
 
 The term "signing attestation evidence" refers to performing a digital signature
 using an attestation key over content that includes claims about the target
-environment (see {{RFC9334}}).
+environment (see {{!RFC9334}}).
 
 An attestation key must be associated with the "digital signing" key usage, as any
 other keys used to performed digital signature. Furthermore, an attestation key must
@@ -131,7 +131,7 @@ a key confined to specialized hardware under the control of the subject.
 
 ## Implication for the RATS Verifier
 
-In {{RFC9334}}, the Verifier is the role that consumes the evidence produced by an
+In {{!RFC9334}}, the Verifier is the role that consumes the evidence produced by an
 attester. As part of the verification process, the Verifier assesses endorsements, among
 other things. A X.509 certificate containing the EKU id-kp-attestationKey is an
 endorsement of the attester by the issuing authorities.

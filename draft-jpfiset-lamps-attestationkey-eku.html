@@ -10,10 +10,10 @@
 <meta content="Hannes Tschofenig" name="author">
 <meta content="Monty Wiseman" name="author">
 <meta content='
-       As specified in RFC 5280, key usages are specified in X.509 certificates using the
+       As specified in  , key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
 an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
-signing attestation evidence as introduced in RFC 9334. 
+signing attestation evidence as introduced in  . 
     ' name="description">
 <meta content="xml2rfc 3.28.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">LAMPS Working Group</dd>
+<dd class="workgroup">Limited Additional Mechanisms for PKIX and SMIME</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-jpfiset-lamps-attestationkey-eku-latest</dd>
 <dt class="label-published">Published:</dt>
@@ -1099,10 +1099,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Extended Key Usage (EKU) for X.509 Certificates associated with Attestation Keys</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">As specified in RFC 5280, key usages are specified in X.509 certificates using the
+<p id="section-abstract-1">As specified in <div class="author">
+<div class="author-name">RFC5280</div>
+</div>, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
 an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
-signing attestation evidence as introduced in RFC 9334.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+signing attestation evidence as introduced in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1113,11 +1115,11 @@ signing attestation evidence as introduced in RFC 9334.<a href="#section-abstrac
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-jpfiset-lamps-attestationkey-eku/">https://datatracker.ietf.org/doc/draft-jpfiset-lamps-attestationkey-eku/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
-        Limited Additional Mechanisms for PKIX and SMIME (LAMPS) Working Group mailing list (<span><a href="mailto:spasm@ietf.org">mailto:spasm@ietf.org</a></span>),
+        Limited Additional Mechanisms for PKIX and SMIME  mailing list (<span><a href="mailto:spasm@ietf.org">mailto:spasm@ietf.org</a></span>),
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spasm/">https://mailarchive.ietf.org/arch/browse/spasm/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/spasm/">https://www.ietf.org/mailman/listinfo/spasm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/https://github.com/jpfiset/draft-jpfiset-attestationkey-eku">https://github.com/https://github.com/jpfiset/draft-jpfiset-attestationkey-eku</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/jpfiset/draft-jpfiset-attestationkey-eku">https://github.com/jpfiset/draft-jpfiset-attestationkey-eku</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1218,7 +1220,7 @@ signing attestation evidence as introduced in RFC 9334.<a href="#section-abstrac
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">Attesters, as defined in Remote Attestation Procedures
-(RATS) in RFC 9334, can use cryptographic private keys to identify the origin of
+(RATS) in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, can use cryptographic private keys to identify the origin of
 the evidence and protect its integrity. Those private keys are referred to as
 Attestation Keys.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Attestation Keys can be endorsed by a Certification Authority (CA) by issuing
@@ -1367,6 +1369,10 @@ the Attester can no be trusted.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5280">[RFC5280]</dt>
+      <dd>
+<span class="refAuthor">Cooper, D.</span>, <span class="refAuthor">Santesson, S.</span>, <span class="refAuthor">Farrell, S.</span>, <span class="refAuthor">Boeyen, S.</span>, <span class="refAuthor">Housley, R.</span>, and <span class="refAuthor">W. Polk</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile"</span>, <span class="seriesInfo">RFC 5280</span>, <span class="seriesInfo">DOI 10.17487/RFC5280</span>, <time datetime="2008-05" class="refDate">May 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5280">https://www.rfc-editor.org/rfc/rfc5280</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
       <dd>

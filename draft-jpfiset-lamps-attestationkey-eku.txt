@@ -2,7 +2,7 @@
 
 
 
-LAMPS Working Group                                          J.-P. Fiset
+Limited Additional Mechanisms for PKIX and SMIME             J.-P. Fiset
 Internet-Draft                                                  Crypto4A
 Intended status: Informational                              M. Ounsworth
 Expires: 21 September 2025                                       Entrust
@@ -19,11 +19,11 @@ Expires: 21 September 2025                                       Entrust
 
 Abstract
 
-   As specified in RFC 5280, key usages are specified in X.509
+   As specified in RFC5280, key usages are specified in X.509
    certificates using the certificate extensions "Key Usage" and
    "Extended Key Usage".  This document defines an Extended Key Usage
    (EKU) relating to keys that are reserved for the purpose of signing
-   attestation evidence as introduced in RFC 9334.
+   attestation evidence as introduced in [RFC9334].
 
 About This Document
 
@@ -34,14 +34,12 @@ About This Document
    eku/.
 
    Discussion of this document takes place on the Limited Additional
-   Mechanisms for PKIX and SMIME (LAMPS) Working Group mailing list
-   (mailto:spasm@ietf.org), which is archived at
-   https://mailarchive.ietf.org/arch/browse/spasm/.  Subscribe at
-   https://www.ietf.org/mailman/listinfo/spasm/.
+   Mechanisms for PKIX and SMIME mailing list (mailto:spasm@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/spasm/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/spasm/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/https://github.com/jpfiset/draft-jpfiset-
-   attestationkey-eku.
+   https://github.com/jpfiset/draft-jpfiset-attestationkey-eku.
 
 Status of This Memo
 
@@ -92,9 +90,9 @@ Table of Contents
 
 1.  Introduction
 
-   Attesters, as defined in Remote Attestation Procedures (RATS) in RFC
-   9334, can use cryptographic private keys to identify the origin of
-   the evidence and protect its integrity.  Those private keys are
+   Attesters, as defined in Remote Attestation Procedures (RATS) in
+   [RFC9334], can use cryptographic private keys to identify the origin
+   of the evidence and protect its integrity.  Those private keys are
    referred to as Attestation Keys.
 
    Attestation Keys can be endorsed by a Certification Authority (CA) by
@@ -216,6 +214,12 @@ Table of Contents
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
+              <https://www.rfc-editor.org/rfc/rfc5280>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,

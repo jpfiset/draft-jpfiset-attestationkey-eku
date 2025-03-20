@@ -10,9 +10,9 @@
 <meta content="Hannes Tschofenig" name="author">
 <meta content="Monty Wiseman" name="author">
 <meta content='
-       As specified in  , key usages are specified in X.509 certificates using the
+       As described in  , key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
-an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
+an Extended Key Usage (EKU) relating to keys that are dedicated to the purpose of
 signing attestation evidence as introduced in  . 
     ' name="description">
 <meta content="xml2rfc 3.28.0" name="generator">
@@ -1099,9 +1099,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Extended Key Usage (EKU) for X.509 Certificates associated with Attestation Keys</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">As specified in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, key usages are specified in X.509 certificates using the
+<p id="section-abstract-1">As described in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
-an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
+an Extended Key Usage (EKU) relating to keys that are dedicated to the purpose of
 signing attestation evidence as introduced in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
@@ -1171,42 +1171,45 @@ signing attestation evidence as introduced in <span>[<a href="#RFC9334" class="c
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-extended-key-usage-for-atte" class="internal xref">Extended Key Usage for Attestation Key</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-extended-key-usage-for-atte" class="internal xref">Extended Key Usage for Attestation Key</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-including-the-eku-for-attes" class="internal xref">Including the EKU for Attestation Key in Certificates</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-including-the-eku-for-attes" class="internal xref">Including the EKU for Attestation Key in Certificates</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-implication-for-a-certifica" class="internal xref">Implication for a Certificate Authority</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-implication-for-a-certifica" class="internal xref">Implication for a Certificate Authority</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-implication-for-the-rats-ve" class="internal xref">Implication for the RATS Verifier</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-implication-for-the-rats-ve" class="internal xref">Implication for the RATS Verifier</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
-                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="auto internal xref">2.4</a>.  <a href="#name-implication-for-cryptograph" class="internal xref">Implication for Cryptographic Modules</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-implication-for-cryptograph" class="internal xref">Implication for Cryptographic Modules</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-appendix-a-asn1-module" class="internal xref">Appendix A. ASN.1 Module</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-appendix-a-asn1-module" class="internal xref">Appendix A. ASN.1 Module</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1228,140 +1231,154 @@ evidence. This allows recipients of signed evidence to trust that the associated
 controlled according to the constraints specified in this document.<a href="#section-1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="extended-key-usage-for-attestation-key">
+<div id="terminology">
 <section id="section-2">
-      <h2 id="name-extended-key-usage-for-atte">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-extended-key-usage-for-atte" class="section-name selfRef">Extended Key Usage for Attestation Key</a>
+      <h2 id="name-terminology">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
       </h2>
-<p id="section-2-1">This specification defines the KeyPurposeId id-kp-attestationKey. This KeyPurposeId
-is reserved for attestation keys.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">The term "signing attestation evidence" refers to performing a digital signature
-using an attestation key over content that includes claims about the target
-environment (see <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>).<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">An attestation key must be associated with the "digital signing" key usage, as any
-other keys used to performed digital signature. Furthermore, an attestation key must
-adhere to the following constraints:<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-1">Much of the terms used in this specification are borrowed from RATS (<span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>).
+Readers of this specification should review the RATS architecture and its terminology
+to put in context the text presented in this specification.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">Attestation Key : A key under the control of the Attester and reserved for the purpose
+of signing collected claims.<a href="#section-2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="extended-key-usage-for-attestation-key">
+<section id="section-3">
+      <h2 id="name-extended-key-usage-for-atte">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-extended-key-usage-for-atte" class="section-name selfRef">Extended Key Usage for Attestation Key</a>
+      </h2>
+<p id="section-3-1">This specification defines the KeyPurposeId id-kp-attestationKey. This KeyPurposeId
+is reserved for Attestation Keys.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The term "signing attestation evidence" refers to performing a digital signature
+using an Attestation Key over content that includes claims about the target
+environment (see <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>).<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">An Attestation Key must be associated with the "digital signing" key usage, as any
+other keys used to performed digital signature. Furthermore, an Attestation Key <span class="bcp14">MUST</span>
+adhere to the following constraints:<a href="#section-3-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2-4.1">
-          <p id="section-2-4.1.1">An attestation key <span class="bcp14">SHOULD</span> be used only by an attester to digitally sign claims that
-the attester can be observed in the target environment. The attester <span class="bcp14">SHOULD</span> not use the
-attestation key for any other purpose (dedication).<a href="#section-2-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3-4.1">
+          <p id="section-3-4.1.1">An Attestation Key <span class="bcp14">SHOULD</span> be used only by an Attester to digitally sign claims that
+the Attester can observe in the target environment. The Attester <span class="bcp14">SHOULD</span> not use the
+Attestation Key for any other purpose (dedication).<a href="#section-3-4.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-2-4.2">
-          <p id="section-2-4.2.1">An attestation key <span class="bcp14">MUST</span> not be controlled by any entity other than the associated
-attester. This constraint is to ensure that other entity can not impersonate the
-attester (non-repudiation).<a href="#section-2-4.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-4.2">
+          <p id="section-3-4.2.1">An Attestation Key <span class="bcp14">MUST</span> not be controlled by any entity other than the associated
+Attester. This constraint is to ensure that other entity can not impersonate the
+Attester (non-repudiation).<a href="#section-3-4.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="including-the-eku-for-attestation-key-in-certificates">
-<section id="section-2.1">
+<section id="section-3.1">
         <h3 id="name-including-the-eku-for-attes">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-including-the-eku-for-attes" class="section-name selfRef">Including the EKU for Attestation Key in Certificates</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-including-the-eku-for-attes" class="section-name selfRef">Including the EKU for Attestation Key in Certificates</a>
         </h3>
-<p id="section-2.1-1">When the EKU id-kp-attestationKey is included in a X.509, other considerations should
-be taken:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">When the EKU id-kp-attestationKey is included in a X.509, other considerations should
+be taken:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2.1-2.1">
-            <p id="section-2.1-2.1.1">The X.509 extension "key usage" <span class="bcp14">MUST</span> be set to "digital signature". In other words,
-the value of the associated field includes the bit "digitalSignature" set.<a href="#section-2.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1-2.1">
+            <p id="section-3.1-2.1.1">The X.509 extension "key usage" <span class="bcp14">MUST</span> be set to "digital signature". In other words,
+the value of the associated field includes the bit "digitalSignature" set.<a href="#section-3.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.1-2.2">
-            <p id="section-2.1-2.2.1">The X.509 extension "extended key usage" <span class="bcp14">SHOULD</span> not include usage other than the
-one defined in this document (id-kp-attestationKey).<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.1-2.2">
+            <p id="section-3.1-2.2.1">The X.509 extension "extended key usage" <span class="bcp14">SHOULD</span> not include usage other than the
+one defined in this document (id-kp-attestationKey).<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
 <div id="implication-for-a-certificate-authority">
-<section id="section-2.2">
+<section id="section-3.2">
         <h3 id="name-implication-for-a-certifica">
-<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-implication-for-a-certifica" class="section-name selfRef">Implication for a Certificate Authority</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-implication-for-a-certifica" class="section-name selfRef">Implication for a Certificate Authority</a>
         </h3>
-<p id="section-2.2-1">When a Certificate Authority issues a X.509 certificate that includes the extended key
+<p id="section-3.2-1">When a Certificate Authority issues a X.509 certificate that includes the extended key
 usage defined in this document, certain additional considerations <span class="bcp14">MUST</span> be taken to ensure
-that the constraints defined in this document are respected.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2-2">Issuing a X.509 certificate with the extended key usage id-kp-attestationKey
+that the constraints defined in this document are respected.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">Issuing a X.509 certificate with the extended key usage id-kp-attestationKey
 equates to providing an endorsement of the attester as defined in the RATS architecture.
 Therefore, the procedures and practices employed by a Certificate Authority <span class="bcp14">MUST</span> be
-adjusted to take into account RATS architecture.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.2-3">In particular, it is not sufficient for a CA to verify that the subject of the certificate
-has possession of the subject key. It <span class="bcp14">MUST</span> also ensure that the subject is the only
+augmented to take into account the security considerations relating to the Attestation
+Key as outlined in the RATS architecture.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">In particular, it is not sufficient for a CA to verify that the subject of the certificate,
+the Attester, has possession of the subject key. It <span class="bcp14">MUST</span> also ensure that the Attester is the only
 entity that controls the key. This can be accomplished (but not restricted to) by using
-a key confined to specialized hardware under the control of the subject.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+a key confined to specialized hardware under the control of the Attester.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="implication-for-the-rats-verifier">
-<section id="section-2.3">
+<section id="section-3.3">
         <h3 id="name-implication-for-the-rats-ve">
-<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-implication-for-the-rats-ve" class="section-name selfRef">Implication for the RATS Verifier</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-implication-for-the-rats-ve" class="section-name selfRef">Implication for the RATS Verifier</a>
         </h3>
-<p id="section-2.3-1">In <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, the Verifier is the role that consumes the evidence produced by an
-attester. As part of the verification process, the Verifier assesses endorsements, among
+<p id="section-3.3-1">In <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, the Verifier is the role that consumes the evidence produced by an
+Attester. As part of the verification process, the Verifier assesses endorsements, among
 other things. A X.509 certificate containing the EKU id-kp-attestationKey is an
-endorsement of the attester by the issuing authorities.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.3-2">While assessing an endorsement provided this way, a Verifier must follow all practices
-to validate the veracity of the certificate.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
+endorsement of the Attester by the issuing authorities.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">While assessing an endorsement provided this way, a Verifier must follow all practices
+to validate the veracity of the certificate.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="implication-for-cryptographic-modules">
-<section id="section-2.4">
+<section id="section-3.4">
         <h3 id="name-implication-for-cryptograph">
-<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-implication-for-cryptograph" class="section-name selfRef">Implication for Cryptographic Modules</a>
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-implication-for-cryptograph" class="section-name selfRef">Implication for Cryptographic Modules</a>
         </h3>
-<p id="section-2.4-1">Attestation keys are instantiated and operated on by cryptographic modules. These modules
-<span class="bcp14">MUST</span> provide the services required to restrict the use of an attestation key to its
-associated Attester.<a href="#section-2.4-1" class="pilcrow">¶</a></p>
-<p id="section-2.4-2">The mechanisms used to perform those restrictions are out of scope for this document.<a href="#section-2.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-1">Attestation Keys are instantiated and operated on by cryptographic modules. These modules
+<span class="bcp14">MUST</span> provide the services required to restrict the use of an Attestation Key to its
+associated Attester.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">The mechanisms used to perform those restrictions are out of scope for this document.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="conventions-and-definitions">
-<section id="section-3">
+<section id="section-4">
       <h2 id="name-conventions-and-definitions">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-3-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+<p id="section-4-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶</a></p>
+appear in all capitals, as shown here.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-security-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">For attestation evidence to be valuable, coordination between the various roles is required:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">For attestation evidence to be valuable, coordination between the various roles is required:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4-2.1">
-          <p id="section-4-2.1.1">The cryptographic module must restrict the use of the attestation key to the Attester.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-5-2.1">
+          <p id="section-5-2.1.1">The cryptographic module <span class="bcp14">MUST</span> restrict the use of the Attestation Key to the associated Attester.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.2">
-          <p id="section-4-2.2.1">The CA <span class="bcp14">MUST</span> ensure that the Attester and the attestation key respect the constraints outlined
-in this document.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-2.2">
+          <p id="section-5-2.2.1">The CA <span class="bcp14">MUST</span> ensure that the Attester is the only entity that controls the Attestation Key which
+is subject to the issuance of a certificate.<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.3">
-          <p id="section-4-2.3.1">A Verifier must perform the assessment of the presented evidence using all the procedures
-required to ascertain as to the origin and validity of the attester.<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-2.3">
+          <p id="section-5-2.3.1">A Verifier must perform the assessment of the presented evidence using all the procedures
+required to ascertain as to the origin and validity of the attester.<a href="#section-5-2.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-3">The risks associated with a failure of this coordination is that the claims reported by
-the Attester can no be trusted.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-5-3">The risks associated with a failure of this coordination reduces the quality of the trustworthiness
+of the evidence.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">The implications are outlines in the Security Considerations section in RATS (<span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>).<a href="#section-5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-5">
+<section id="section-6">
       <h2 id="name-iana-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-5-1">IANA needs to assign an object identifier (OID) for this purpose.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">IANA needs to assign an object identifier (OID) for this purpose.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-normative-references">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-normative-references">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>

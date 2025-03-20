@@ -21,3 +21,4 @@ draft-jpfiset-lamps-attestationkey-eku.xml
 package-lock.json
 report.xml
 !requirements.txt
+.project

@@ -59,10 +59,10 @@ informative:
 
 --- abstract
 
-As specified in RFC 5280, key usages are specified in X.509 certificates using the
+As specified in {{{!RFC5280}}, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
 an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
-signing attestation evidence as introduced in RFC 9334.
+signing attestation evidence as introduced in {{!RFC9334}}.
 
 
 
@@ -71,7 +71,7 @@ signing attestation evidence as introduced in RFC 9334.
 # Introduction
 
 Attesters, as defined in Remote Attestation Procedures
-(RATS) in RFC 9334, can use cryptographic private keys to identify the origin of
+(RATS) in {{!RFC9334}}, can use cryptographic private keys to identify the origin of
 the evidence and protect its integrity. Those private keys are referred to as
 Attestation Keys.
 

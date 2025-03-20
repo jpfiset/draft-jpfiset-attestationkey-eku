@@ -1099,9 +1099,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Extended Key Usage (EKU) for X.509 Certificates associated with Attestation Keys</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">As specified in <div class="author">
-<div class="author-name">RFC5280</div>
-</div>, key usages are specified in X.509 certificates using the
+<p id="section-abstract-1">As specified in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
 an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
 signing attestation evidence as introduced in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
@@ -1224,9 +1222,9 @@ signing attestation evidence as introduced in <span>[<a href="#RFC9334" class="c
 the evidence and protect its integrity. Those private keys are referred to as
 Attestation Keys.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Attestation Keys can be endorsed by a Certification Authority (CA) by issuing
-X.509 certificates. Those certificates <span class="bcp14">SHOULD</span> include an extended key usage to
-indicate that the associated key is dedicated to the purpose of attesting evidence.
-This allows recipients of signed evidence to trust that the associated key is
+X.509 certificates (see <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>). Those certificates <span class="bcp14">SHOULD</span> include an extended
+key usage to indicate that the associated key is dedicated to the purpose of attesting
+evidence. This allows recipients of signed evidence to trust that the associated key is
 controlled according to the constraints specified in this document.<a href="#section-1-2" class="pilcrow">¶</a></p>
 </section>
 </div>

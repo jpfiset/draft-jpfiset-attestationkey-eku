@@ -9,18 +9,18 @@ number:
 date:
 consensus: true
 v: 3
-area: SEC
-workgroup: LAMPS Working Group
+area: ""
+workgroup: "Limited Additional Mechanisms for PKIX and SMIME"
 keyword:
  - Internet-Draft
  - RATS
  - Extended Key Usage
 venue:
-  group: "Limited Additional Mechanisms for PKIX and SMIME (LAMPS)"
-  type: "Working Group"
+  group: "Limited Additional Mechanisms for PKIX and SMIME"
+  type: ""
   mail: "spasm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: https://github.com/jpfiset/draft-jpfiset-attestationkey-eku
+  github: "jpfiset/draft-jpfiset-attestationkey-eku"
 
 author:
   - name: Jean-Pierre Fiset

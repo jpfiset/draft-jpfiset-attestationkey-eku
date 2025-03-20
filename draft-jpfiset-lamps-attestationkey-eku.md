@@ -59,9 +59,9 @@ informative:
 
 --- abstract
 
-As specified in {{!RFC5280}}, key usages are specified in X.509 certificates using the
+As described in {{!RFC5280}}, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
-an Extended Key Usage (EKU) relating to keys that are reserved for the purpose of
+an Extended Key Usage (EKU) relating to keys that are dedicated to the purpose of
 signing attestation evidence as introduced in {{!RFC9334}}.
 
 
@@ -81,26 +81,35 @@ key usage to indicate that the associated key is dedicated to the purpose of att
 evidence. This allows recipients of signed evidence to trust that the associated key is
 controlled according to the constraints specified in this document.
 
+# Terminology
+
+Much of the terms used in this specification are borrowed from RATS ({{!RFC9334}}).
+Readers of this specification should review the RATS architecture and its terminology
+to put in context the text presented in this specification.
+
+Attestation Key : A key under the control of the Attester and reserved for the purpose
+of signing collected claims.
+
 # Extended Key Usage for Attestation Key
 
 This specification defines the KeyPurposeId id-kp-attestationKey. This KeyPurposeId
-is reserved for attestation keys.
+is reserved for Attestation Keys.
 
 The term "signing attestation evidence" refers to performing a digital signature
-using an attestation key over content that includes claims about the target
+using an Attestation Key over content that includes claims about the target
 environment (see {{!RFC9334}}).
 
-An attestation key must be associated with the "digital signing" key usage, as any
-other keys used to performed digital signature. Furthermore, an attestation key must
+An Attestation Key must be associated with the "digital signing" key usage, as any
+other keys used to performed digital signature. Furthermore, an Attestation Key MUST
 adhere to the following constraints:
 
-* An attestation key SHOULD be used only by an attester to digitally sign claims that
-the attester can be observed in the target environment. The attester SHOULD not use the
-attestation key for any other purpose (dedication).
+* An Attestation Key SHOULD be used only by an Attester to digitally sign claims that
+the Attester can observe in the target environment. The Attester SHOULD not use the
+Attestation Key for any other purpose (dedication).
 
-* An attestation key MUST not be controlled by any entity other than the associated
-attester. This constraint is to ensure that other entity can not impersonate the
-attester (non-repudiation).
+* An Attestation Key MUST not be controlled by any entity other than the associated
+Attester. This constraint is to ensure that other entity can not impersonate the
+Attester (non-repudiation).
 
 ## Including the EKU for Attestation Key in Certificates
 
@@ -122,27 +131,28 @@ that the constraints defined in this document are respected.
 Issuing a X.509 certificate with the extended key usage id-kp-attestationKey
 equates to providing an endorsement of the attester as defined in the RATS architecture.
 Therefore, the procedures and practices employed by a Certificate Authority MUST be
-adjusted to take into account RATS architecture.
+augmented to take into account the security considerations relating to the Attestation
+Key as outlined in the RATS architecture.
 
-In particular, it is not sufficient for a CA to verify that the subject of the certificate
-has possession of the subject key. It MUST also ensure that the subject is the only
+In particular, it is not sufficient for a CA to verify that the subject of the certificate,
+the Attester, has possession of the subject key. It MUST also ensure that the Attester is the only
 entity that controls the key. This can be accomplished (but not restricted to) by using
-a key confined to specialized hardware under the control of the subject.
+a key confined to specialized hardware under the control of the Attester.
 
 ## Implication for the RATS Verifier
 
 In {{!RFC9334}}, the Verifier is the role that consumes the evidence produced by an
-attester. As part of the verification process, the Verifier assesses endorsements, among
+Attester. As part of the verification process, the Verifier assesses endorsements, among
 other things. A X.509 certificate containing the EKU id-kp-attestationKey is an
-endorsement of the attester by the issuing authorities.
+endorsement of the Attester by the issuing authorities.
 
 While assessing an endorsement provided this way, a Verifier must follow all practices
 to validate the veracity of the certificate.
 
 ## Implication for Cryptographic Modules
 
-Attestation keys are instantiated and operated on by cryptographic modules. These modules
-MUST provide the services required to restrict the use of an attestation key to its
+Attestation Keys are instantiated and operated on by cryptographic modules. These modules
+MUST provide the services required to restrict the use of an Attestation Key to its
 associated Attester.
 
 The mechanisms used to perform those restrictions are out of scope for this document.
@@ -157,17 +167,18 @@ The mechanisms used to perform those restrictions are out of scope for this docu
 
 For attestation evidence to be valuable, coordination between the various roles is required:
 
-* The cryptographic module must restrict the use of the attestation key to the Attester.
+* The cryptographic module MUST restrict the use of the Attestation Key to the associated Attester.
 
-* The CA MUST ensure that the Attester and the attestation key respect the constraints outlined
-in this document.
+* The CA MUST ensure that the Attester is the only entity that controls the Attestation Key which
+is subject to the issuance of a certificate.
 
 * A Verifier must perform the assessment of the presented evidence using all the procedures
 required to ascertain as to the origin and validity of the attester.
 
-The risks associated with a failure of this coordination is that the claims reported by
-the Attester can no be trusted.
+The risks associated with a failure of this coordination reduces the quality of the trustworthiness
+of the evidence.
 
+The implications are outlines in the Security Considerations section in RATS ({{!RFC9334}}).
 
 
 

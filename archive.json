@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-31T02:09:50.662655+00:00",
+  "timestamp": "2025-08-03T02:25:18.026205+00:00",
   "repo": "jpfiset/draft-jpfiset-attestationkey-eku",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOOLh0ks7DjrIl",
+      "title": "FIDO has already defined an EKU for similar usage; review needed",
+      "url": "https://github.com/jpfiset/draft-jpfiset-attestationkey-eku/issues/1",
+      "state": "OPEN",
+      "author": "jpfiset",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "See https://fidoalliance.org/specs/fido-v2.0-ps-20150904/fido-key-attestation-v2.0-ps-20150904.html\n",
+      "createdAt": "2025-07-31T15:35:01Z",
+      "updatedAt": "2025-07-31T15:35:01Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }

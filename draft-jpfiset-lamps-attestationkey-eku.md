@@ -1,14 +1,15 @@
 ---
 title: "Extended Key Usage (EKU) for X.509 Certificates associated with Attestation Keys"
 abbrev: "EKU for Attestation Keys"
-category: info
+docname: draft-jpfiset-lamps-attestationkey-eku-latest
 
-docname: draft-jpfiset-attestationkey-eku
-submissiontype: IETF  # also: "IETF", "independent", "editorial", "IAB", or "IRTF"
-number:
-date:
-consensus: false
-v: 3
+category: std
+consensus: true
+submissiontype: IETF
+
+ipr: trust200902
+keyword: Internet-Draft
+coding: utf-8
 
 author:
   - name: Jean-Pierre Fiset

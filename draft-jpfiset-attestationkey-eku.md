@@ -3,24 +3,12 @@ title: "Extended Key Usage (EKU) for X.509 Certificates associated with Attestat
 abbrev: "EKU for Attestation Keys"
 category: info
 
-docname: draft-jpfiset-lamps-attestationkey-eku-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+docname: draft-jpfiset-attestationkey-eku
+submissiontype: IETF  # also: "IETF", "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
-consensus: true
+consensus: false
 v: 3
-area: ""
-workgroup: "Limited Additional Mechanisms for PKIX and SMIME"
-keyword:
- - Internet-Draft
- - RATS
- - Extended Key Usage
-venue:
-  group: "Limited Additional Mechanisms for PKIX and SMIME"
-  type: ""
-  mail: "spasm@ietf.org"
-  arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: "jpfiset/draft-jpfiset-attestationkey-eku"
 
 author:
   - name: Jean-Pierre Fiset
@@ -48,9 +36,9 @@ author:
     email: Hannes.Tschofenig@gmx.net
 
   - name: Monty Wiseman
-    org: Beyond Identity
+    org:
     country: USA
-    email: monty.wiseman@beyondidentity.com
+    email: montywiseman32@gmail.com
 
 normative:
 
@@ -59,10 +47,10 @@ informative:
 
 --- abstract
 
-As described in {{!RFC5280}}, key usages are specified in X.509 certificates using the
+As described in RFC5280, key usages are specified in X.509 certificates using the
 certificate extensions "Key Usage" and "Extended Key Usage". This document defines
 an Extended Key Usage (EKU) relating to keys that are dedicated to the purpose of
-signing attestation evidence as introduced in {{!RFC9334}}.
+signing attestation evidence as introduced in RFC9334.
 
 
 
@@ -104,10 +92,10 @@ other keys used to performed digital signature. Furthermore, an Attestation Key 
 adhere to the following constraints:
 
 * An Attestation Key SHOULD be used only by an Attester to digitally sign claims that
-the Attester can observe in the target environment. The Attester SHOULD not use the
+the Attester can observe in the target environment. The Attester SHOULD NOT use the
 Attestation Key for any other purpose (dedication).
 
-* An Attestation Key MUST not be controlled by any entity other than the associated
+* An Attestation Key MUST NOT be controlled by any entity other than the associated
 Attester. This constraint is to ensure that other entity can not impersonate the
 Attester (non-repudiation).
 
@@ -119,7 +107,7 @@ be taken:
 * The X.509 extension "key usage" MUST be set to "digital signature". In other words,
 the value of the associated field includes the bit "digitalSignature" set.
 
-* The X.509 extension "extended key usage" SHOULD not include usage other than the
+* The X.509 extension "extended key usage" SHOULD NOT include usage other than the
 one defined in this document (id-kp-attestationKey).
 
 ## Implication for a Certificate Authority

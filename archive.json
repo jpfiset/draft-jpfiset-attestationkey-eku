@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-05T02:19:06.388620+00:00",
+  "timestamp": "2025-08-07T02:11:21.332802+00:00",
   "repo": "jpfiset/draft-jpfiset-attestationkey-eku",
   "labels": [
     {
@@ -63,6 +63,22 @@
       "body": "See https://fidoalliance.org/specs/fido-v2.0-ps-20150904/fido-key-attestation-v2.0-ps-20150904.html\n",
       "createdAt": "2025-07-31T15:35:01Z",
       "updatedAt": "2025-07-31T15:35:01Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOOLh0ks7EfXhG",
+      "title": "DICE may already have suitable EKUs for this purpose",
+      "url": "https://github.com/jpfiset/draft-jpfiset-attestationkey-eku/issues/2",
+      "state": "OPEN",
+      "author": "jpfiset",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Ref: https://trustedcomputinggroup.org/wp-content/uploads/DICE-Certificate-Profiles-v1.1_pub.pdf (sections 5.1.5.3, 5.1.5.4, 5.1.5.5 and 5.1.5.6)\n\nShould review if one of those is applicable for the intended purpose.",
+      "createdAt": "2025-08-06T12:41:06Z",
+      "updatedAt": "2025-08-06T12:41:23Z",
       "closedAt": null,
       "comments": []
     }

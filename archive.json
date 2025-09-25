@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-23T01:45:36.961768+00:00",
+  "timestamp": "2025-09-25T01:47:52.120200+00:00",
   "repo": "jpfiset/draft-jpfiset-attestationkey-eku",
   "labels": [
     {
@@ -55,32 +55,55 @@
       "id": "I_kwDOOLh0ks7DjrIl",
       "title": "FIDO has already defined an EKU for similar usage; review needed",
       "url": "https://github.com/jpfiset/draft-jpfiset-attestationkey-eku/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jpfiset",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "See https://fidoalliance.org/specs/fido-v2.0-ps-20150904/fido-key-attestation-v2.0-ps-20150904.html\n",
       "createdAt": "2025-07-31T15:35:01Z",
-      "updatedAt": "2025-07-31T15:35:01Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-09-23T17:33:49Z",
+      "closedAt": "2025-09-23T17:33:49Z",
+      "comments": [
+        {
+          "author": "jpfiset",
+          "authorAssociation": "OWNER",
+          "body": "According to the documentation, there are provisions to ensure that a TPM attestation is supported with a certificate that contains the EKU OID 2.23.133.8.3. This OID is specific to TPM and can not be reused for the purpose of our new specification.\n\nThe other attestation methods (packed and android) do not include EKUs specific for this purpose.",
+          "createdAt": "2025-09-23T17:17:47Z",
+          "updatedAt": "2025-09-23T17:17:47Z"
+        }
+      ]
     },
     {
       "number": 2,
       "id": "I_kwDOOLh0ks7EfXhG",
       "title": "DICE may already have suitable EKUs for this purpose",
       "url": "https://github.com/jpfiset/draft-jpfiset-attestationkey-eku/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jpfiset",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Ref: https://trustedcomputinggroup.org/wp-content/uploads/DICE-Certificate-Profiles-v1.1_pub.pdf (sections 5.1.5.3, 5.1.5.4, 5.1.5.5 and 5.1.5.6)\n\nShould review if one of those is applicable for the intended purpose.",
       "createdAt": "2025-08-06T12:41:06Z",
-      "updatedAt": "2025-08-06T12:41:23Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-09-23T16:44:38Z",
+      "closedAt": "2025-09-23T16:21:40Z",
+      "comments": [
+        {
+          "author": "jpfiset",
+          "authorAssociation": "OWNER",
+          "body": "DICE has defined four EKUs for attestation keys. However, they are very specialized in scope and do not apply for the work we are currently doing.",
+          "createdAt": "2025-09-23T16:21:40Z",
+          "updatedAt": "2025-09-23T16:21:40Z"
+        },
+        {
+          "author": "jpfiset",
+          "authorAssociation": "OWNER",
+          "body": "The four OIDs defined in DICE:\n- Initial Attestation OID : 2.23.133.5.4.100.8\n- Local Attestation OID : 2.23.133.5.4.100.9\n- Initial Assertion OID : 2.23.133.5.4.100.10\n- Local Assertion OID : 2.23.133.5.4.100.11",
+          "createdAt": "2025-09-23T16:44:38Z",
+          "updatedAt": "2025-09-23T16:44:38Z"
+        }
+      ]
     }
   ],
   "pulls": []

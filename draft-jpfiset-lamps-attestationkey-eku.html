@@ -15,21 +15,21 @@ certificate extensions "Key Usage" and "Extended Key Usage". This document defin
 an Extended Key Usage (EKU) relating to keys that are dedicated to the purpose of
 signing attestation evidence as introduced in RFC9334. 
     ' name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.30.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-jpfiset-lamps-attestationkey-eku-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
+  xml2rfc 3.30.2
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.3.8
+    platformdirs 4.4.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.4
+    requests 2.32.5
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
@@ -1050,11 +1050,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">EKU for Attestation Keys</td>
-<td class="right">August 2025</td>
+<td class="right">September 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fiset, et al.</td>
-<td class="center">Expires 6 February 2026</td>
+<td class="center">Expires 30 March 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-jpfiset-lamps-attestationkey-eku-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-08-05" class="published">5 August 2025</time>
+<time datetime="2025-09-26" class="published">26 September 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-02-06">6 February 2026</time></dd>
+<dd class="expires"><time datetime="2026-03-30">30 March 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ signing attestation evidence as introduced in RFC9334.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1222,7 +1222,7 @@ controlled according to the constraints specified in this document.<a href="#sec
 Readers of this specification should review the RATS architecture and its terminology
 to put in context the text presented in this specification.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">Attestation Key : A key under the control of the Attester and reserved for the purpose
-of signing collected claims.<a href="#section-2-2" class="pilcrow">¶</a></p>
+of signing evidence.<a href="#section-2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="extended-key-usage-for-attestation-key">
@@ -1232,15 +1232,15 @@ of signing collected claims.<a href="#section-2-2" class="pilcrow">¶</a></p>
       </h2>
 <p id="section-3-1">This specification defines the KeyPurposeId id-kp-attestationKey. This KeyPurposeId
 is reserved for Attestation Keys.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The term "signing attestation evidence" refers to performing a digital signature
-using an Attestation Key over content that includes claims about the target
+<p id="section-3-2">The term "signing evidence" refers to performing a digital signature
+using an Attestation Key over content that includes claims and measurements about the target
 environment (see <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>).<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">An Attestation Key must be associated with the "digital signing" key usage, as any
 other keys used to performed digital signature. Furthermore, an Attestation Key <span class="bcp14">MUST</span>
 adhere to the following constraints:<a href="#section-3-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-4.1">
-          <p id="section-3-4.1.1">An Attestation Key <span class="bcp14">SHOULD</span> be used only by an Attester to digitally sign claims that
+          <p id="section-3-4.1.1">An Attestation Key <span class="bcp14">SHOULD</span> be used by an Attester only to digitally sign evidence that
 the Attester can observe in the target environment. The Attester <span class="bcp14">SHOULD NOT</span> use the
 Attestation Key for any other purpose (dedication).<a href="#section-3-4.1.1" class="pilcrow">¶</a></p>
 </li>
@@ -1264,7 +1264,8 @@ the value of the associated field includes the bit "digitalSignature" set.<a hre
 </li>
           <li class="normal" id="section-3.1-2.2">
             <p id="section-3.1-2.2.1">The X.509 extension "extended key usage" <span class="bcp14">SHOULD NOT</span> include usage other than the
-one defined in this document (id-kp-attestationKey).<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+one defined in this document (id-kp-attestationKey). If other extended key usages
+are provided, they <span class="bcp14">MUST</span> be compatible with constraints outlined in this specification.<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1275,7 +1276,7 @@ one defined in this document (id-kp-attestationKey).<a href="#section-3.1-2.2.1"
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-implication-for-a-certifica" class="section-name selfRef">Implication for a Certificate Authority</a>
         </h3>
 <p id="section-3.2-1">When a Certificate Authority issues a X.509 certificate that includes the extended key
-usage defined in this document, certain additional considerations <span class="bcp14">MUST</span> be taken to ensure
+usage defined in this specification, certain additional considerations <span class="bcp14">MUST</span> be taken to ensure
 that the constraints defined in this document are respected.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">Issuing a X.509 certificate with the extended key usage id-kp-attestationKey
 equates to providing an endorsement of the attester as defined in the RATS architecture.
@@ -1309,7 +1310,7 @@ to validate the veracity of the certificate.<a href="#section-3.3-2" class="pilc
 <p id="section-3.4-1">Attestation Keys are instantiated and operated on by cryptographic modules. These modules
 <span class="bcp14">MUST</span> provide the services required to restrict the use of an Attestation Key to its
 associated Attester.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.4-2">The mechanisms used to perform those restrictions are out of scope for this document.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">The mechanisms used to perform those restrictions are out of scope for this specification.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

@@ -77,22 +77,22 @@ Readers of this specification should review the RATS architecture and its termin
 to put in context the text presented in this specification.
 
 Attestation Key : A key under the control of the Attester and reserved for the purpose
-of signing collected claims.
+of signing evidence.
 
 # Extended Key Usage for Attestation Key
 
 This specification defines the KeyPurposeId id-kp-attestationKey. This KeyPurposeId
 is reserved for Attestation Keys.
 
-The term "signing attestation evidence" refers to performing a digital signature
-using an Attestation Key over content that includes claims about the target
+The term "signing evidence" refers to performing a digital signature
+using an Attestation Key over content that includes claims and measurements about the target
 environment (see {{!RFC9334}}).
 
 An Attestation Key must be associated with the "digital signing" key usage, as any
 other keys used to performed digital signature. Furthermore, an Attestation Key MUST
 adhere to the following constraints:
 
-* An Attestation Key SHOULD be used only by an Attester to digitally sign claims that
+* An Attestation Key SHOULD be used by an Attester only to digitally sign evidence that
 the Attester can observe in the target environment. The Attester SHOULD NOT use the
 Attestation Key for any other purpose (dedication).
 
@@ -109,12 +109,13 @@ be taken:
 the value of the associated field includes the bit "digitalSignature" set.
 
 * The X.509 extension "extended key usage" SHOULD NOT include usage other than the
-one defined in this document (id-kp-attestationKey).
+one defined in this document (id-kp-attestationKey). If other extended key usages
+are provided, they MUST be compatible with constraints outlined in this specification.
 
 ## Implication for a Certificate Authority
 
 When a Certificate Authority issues a X.509 certificate that includes the extended key
-usage defined in this document, certain additional considerations MUST be taken to ensure
+usage defined in this specification, certain additional considerations MUST be taken to ensure
 that the constraints defined in this document are respected.
 
 Issuing a X.509 certificate with the extended key usage id-kp-attestationKey
@@ -144,7 +145,7 @@ Attestation Keys are instantiated and operated on by cryptographic modules. Thes
 MUST provide the services required to restrict the use of an Attestation Key to its
 associated Attester.
 
-The mechanisms used to perform those restrictions are out of scope for this document.
+The mechanisms used to perform those restrictions are out of scope for this specification.
 
 
 # Conventions and Definitions

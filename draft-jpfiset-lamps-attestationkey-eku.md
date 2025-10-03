@@ -171,10 +171,17 @@ of the evidence.
 The implications are outlines in the Security Considerations section in RATS ({{!RFC9334}}).
 
 
-
 # IANA Considerations
 
-IANA needs to assign an object identifier (OID) for this purpose.
+For the ASN.1 module found in Appendix A, IANA is requested to assign
+an object identifier for the module identifier (TBD0) with a
+description of "id-mod-attestation-eku-2025". This should be allocated in the
+"SMI Security for PKIX Module Identifier" registry (1.3.6.1.5.5.7.0).
+
+For the ASN.1 module found in Appendix A, IANA is requested to assign
+an object identifier for the extended key usage value (XX) with a
+description of "id-kp-attestationKey". This should be allocated in the
+"SMI Security for PKIX Extended Key Purpose" registry (1.3.6.1.5.5.7.3).
 
 
 --- back
@@ -182,10 +189,13 @@ IANA needs to assign an object identifier (OID) for this purpose.
 # Appendix A. ASN.1 Module
 {:numbered="false"}
 
-The following ASN.1 module provides the complete definition of the
-Attestation Key KeyPurposeId.
+The following module adheres to ASN.1 specifications [X.680] and [X.690].
+It defines the OID used for Attestation Key Extended Key Usage.
 
 ~~~
+  AttestationEKU-2025 { iso(1) identified-organization(3) dod(6) internet(1)
+       security(5) mechanisms(5) pkix(7) id-mod(0)
+       id-mod-attestation-eku-2025(TBD0) }
 
   DEFINITIONS EXPLICIT TAGS ::=
 

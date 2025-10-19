@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-16T01:49:26.782728+00:00",
+  "timestamp": "2025-10-19T02:00:19.515282+00:00",
   "repo": "jpfiset/draft-jpfiset-attestationkey-eku",
   "labels": [
     {
@@ -133,9 +133,17 @@
       "labels": [],
       "body": "\n1. The draft specifies that the digitalSignature KU MUST be set, but it is \nunclear whether other bits can be set. It would be good to clarify.\n2. The draft doesn't specify whether the EKU extension should be critical. It \nwould be good to clarify.\n3. The draft currently says, \"While assessing an endorsement provided this \nway, a Verifier must follow all practices to validate the veracity of the \ncertificate.\". I think this needs to be more specific. I believe it's saying \nthat certification path validation MUST be performed, but it would be good if \nthis is made explicit.",
       "createdAt": "2025-10-03T13:06:06Z",
-      "updatedAt": "2025-10-03T13:06:06Z",
+      "updatedAt": "2025-10-17T18:02:46Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mstjohns",
+          "authorAssociation": "NONE",
+          "body": "Actually, an attestation key MUST only be used for attestation. And that's generally enforced by the attestation engine.  Allowing the key to do a general digitalSignature is problematic as you can't differentiate a real attestation from one genned up by the key owner.  This should be proven in some way to the CA that is issuing the AK cert.  But that way is out of scope for this document.\n\nIn TPM2.0 terms, this is a key with the \"restricted\" bit set. \n\nSo the EKU can only have the \"id-kp-attestationKey\" key purpose OID.  \n\nOf the possible bits in KeyUsage, I would suggest that only the \"nonRepudiation\" bit is appropriate, but it's maybe even more appropriate to include a KeyUsage extension with no bits set.  (If you omit KeyUsage, any key purpose listed is valid).  \"digitalSignature\" assumes this key can be used for anything other than certificate and crl signatures, and that's not accurate.  What it can verify is very tightly controlled. \n\nWith respect to path validation, it may be worthwhile to define a CertificationPolicies OID of \"id-cp-attestation\" to be issued to the issuing CA (and the AK certificate...).  This allows for a chain of authority restricting various CAs from issuing AK certificates.  E.g. an AK certificate path validation result must include the \"id-cp-attestation\" policy in addition to the id-kp-attestationKey EKU for the RP to trust the key for use in validating an attestation.\n\nLastly, I'd delete the requirement that the AK must not be controlled by anyone other than the attester.  In the first place, this isn't something that the CA can verify.  In the second place, I would expect some versions of this to enroll an AK that's available to anyone on a given HSM to attest the state of the HSM.  That might be issued by the HSM vendor or some third party.\n",
+          "createdAt": "2025-10-17T18:02:46Z",
+          "updatedAt": "2025-10-17T18:02:46Z"
+        }
+      ]
     }
   ],
   "pulls": []

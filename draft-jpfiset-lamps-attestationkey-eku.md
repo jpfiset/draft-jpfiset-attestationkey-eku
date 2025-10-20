@@ -89,8 +89,10 @@ using an Attestation Key over content that includes claims and measurements abou
 environment (see {{!RFC9334}}).
 
 An Attestation Key must be associated with the "digital signing" key usage, as any
-other keys used to performed digital signature. Furthermore, an Attestation Key MUST
-adhere to the following constraints:
+other keys used to performed digital signature. No other key usage should be assigned to
+an Attestation Key.
+
+Furthermore, an Attestation Key MUST adhere to the following constraints:
 
 * An Attestation Key SHOULD be used by an Attester only to digitally sign evidence that
 the Attester can observe in the target environment. The Attester SHOULD NOT use the
@@ -106,11 +108,18 @@ When the EKU id-kp-attestationKey is included in a X.509, other considerations s
 be taken:
 
 * The X.509 extension "key usage" MUST be set to "digital signature". In other words,
-the value of the associated field includes the bit "digitalSignature" set.
+the value of the associated field includes the bit "digitalSignature" set. Other key
+usages MUST NOT be set.
 
 * The X.509 extension "extended key usage" SHOULD NOT include usage other than the
 one defined in this document (id-kp-attestationKey). If other extended key usages
 are provided, they MUST be compatible with constraints outlined in this specification.
+
+When the extended key usage id-kp-attestationKey is added to the X.509 EKU extension, it
+is not necessary to mark this extension as critical. This is to foster interoperability
+between systems that are not aware of this extended key usage. Systems that consume the
+evidence signed by an attestation key, such as a Verifier, can enforce the presence of this
+extended key usage through policy.
 
 ## Implication for a Certificate Authority
 
@@ -135,9 +144,6 @@ In {{!RFC9334}}, the Verifier is the role that consumes the evidence produced by
 Attester. As part of the verification process, the Verifier assesses endorsements, among
 other things. A X.509 certificate containing the EKU id-kp-attestationKey is an
 endorsement of the Attester by the issuing authorities.
-
-While assessing an endorsement provided this way, a Verifier must follow all practices
-to validate the veracity of the certificate.
 
 ## Implication for Cryptographic Modules
 

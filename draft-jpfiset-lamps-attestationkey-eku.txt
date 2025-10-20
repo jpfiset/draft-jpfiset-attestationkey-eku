@@ -5,11 +5,11 @@
 Network Working Group                                        J.-P. Fiset
 Internet-Draft                                                  Crypto4A
 Intended status: Standards Track                            M. Ounsworth
-Expires: 6 April 2026                                            Entrust
+Expires: 23 April 2026                                           Entrust
                                                            H. Tschofenig
                                                                    H-BRS
                                                               M. Wiseman
-                                                          3 October 2025
+                                                         20 October 2025
 
 
     Extended Key Usage (EKU) for X.509 Certificates associated with
@@ -39,7 +39,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -106,7 +106,9 @@ Table of Contents
    measurements about the target environment (see [RFC9334]).
 
    An Attestation Key must be associated with the "digital signing" key
-   usage, as any other keys used to performed digital signature.
+   usage, as any other keys used to performed digital signature.  No
+   other key usage should be assigned to an Attestation Key.
+
    Furthermore, an Attestation Key MUST adhere to the following
    constraints:
 
@@ -126,13 +128,21 @@ Table of Contents
 
    *  The X.509 extension "key usage" MUST be set to "digital
       signature".  In other words, the value of the associated field
-      includes the bit "digitalSignature" set.
+      includes the bit "digitalSignature" set.  Other key usages MUST
+      NOT be set.
 
    *  The X.509 extension "extended key usage" SHOULD NOT include usage
       other than the one defined in this document (id-kp-
       attestationKey).  If other extended key usages are provided, they
       MUST be compatible with constraints outlined in this
       specification.
+
+   When the extended key usage id-kp-attestationKey is added to the
+   X.509 EKU extension, it is not necessary to mark this extension as
+   critical.  This is to foster interoperability between systems that
+   are not aware of this extended key usage.  Systems that consume the
+   evidence signed by an attestation key, such as a Verifier, can
+   enforce the presence of this extended key usage through policy.
 
 3.2.  Implication for a Certificate Authority
 
@@ -162,9 +172,6 @@ Table of Contents
    Verifier assesses endorsements, among other things.  A X.509
    certificate containing the EKU id-kp-attestationKey is an endorsement
    of the Attester by the issuing authorities.
-
-   While assessing an endorsement provided this way, a Verifier must
-   follow all practices to validate the veracity of the certificate.
 
 3.4.  Implication for Cryptographic Modules
 

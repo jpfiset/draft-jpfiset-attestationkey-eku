@@ -58,9 +58,9 @@ as defined in the RATS Architecture ({{!RFC9334}}).
 # Introduction
 
 Key purpose identifiers (KeyPurposeId) are added to the Extended Key Usage (EKU) extension of X.509 certificates to express
-the intent of the certified key. It is used to further define the basic purpose indicated in the key usage extension.
+the intent of the certified key. It is used to further define the basic purpose indicated in the key usage (KU) extension.
 
-This specification introduces the KeyPurposeId `id-kp-attestationKey` for X.509 certificate that endorse Attestation Keys
+This specification introduces the KeyPurposeId `id-kp-attestationKey` for X.509 certificates that endorse Attestation Keys
 for the purpose of validating Evidence.
 
 Attesters, as defined in RATS {{!RFC9334}}, can use cryptographic private keys to identify
@@ -181,11 +181,6 @@ Attestation Keys are instantiated and operated on by cryptographic modules. Thes
 MUST provide the services required to accomplish the recommendations proposed in this specification.
 
 The mechanisms used to perform those restrictions are out of scope for this specification.
-
-
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 
 # Security Considerations

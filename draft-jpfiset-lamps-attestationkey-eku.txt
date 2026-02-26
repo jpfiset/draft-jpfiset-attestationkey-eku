@@ -65,10 +65,9 @@ Table of Contents
      3.2.  Implication for the RATS Verifier
      3.3.  Implication for Attesters
      3.4.  Implication for Cryptographic Modules
-   4.  Conventions and Definitions
-   5.  Security Considerations
-   6.  IANA Considerations
-   7.  Normative References
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Appendix A.  ASN.1 Module
    Acknowledgments
    Authors' Addresses
@@ -78,10 +77,10 @@ Table of Contents
    Key purpose identifiers (KeyPurposeId) are added to the Extended Key
    Usage (EKU) extension of X.509 certificates to express the intent of
    the certified key.  It is used to further define the basic purpose
-   indicated in the key usage extension.
+   indicated in the key usage (KU) extension.
 
    This specification introduces the KeyPurposeId id-kp-attestationKey
-   for X.509 certificate that endorse Attestation Keys for the purpose
+   for X.509 certificates that endorse Attestation Keys for the purpose
    of validating Evidence.
 
    Attesters, as defined in RATS [RFC9334], can use cryptographic
@@ -241,15 +240,7 @@ Table of Contents
    The mechanisms used to perform those restrictions are out of scope
    for this specification.
 
-4.  Conventions and Definitions
-
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
-
-5.  Security Considerations
+4.  Security Considerations
 
    [RFC5280] introduces security considerations that are applicable to
    this specification.  The EKU purpose id-kp-attestationKey does not
@@ -260,7 +251,7 @@ Table of Contents
    The RATS Architecture ([RFC9334]) offers many security considerations
    that should be reviewed by implementers of this specification.
 
-6.  IANA Considerations
+5.  IANA Considerations
 
    For the ASN.1 module found in Appendix A, IANA is requested to assign
    an object identifier for the module identifier (TBD0) with a
@@ -274,7 +265,7 @@ Table of Contents
    the "SMI Security for PKIX Extended Key Purpose" registry
    (1.3.6.1.5.5.7.3).
 
-7.  Normative References
+6.  Normative References
 
    [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
               Housley, R., and W. Polk, "Internet X.509 Public Key

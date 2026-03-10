@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-08T02:38:56.303710+00:00",
+  "timestamp": "2026-03-10T02:31:32.277135+00:00",
   "repo": "jpfiset/draft-jpfiset-attestationkey-eku",
   "labels": [
     {
@@ -158,6 +158,22 @@
           "updatedAt": "2025-10-20T17:26:40Z"
         }
       ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOOLh0ks7xHu0l",
+      "title": "Comments from Fran\u00e7ois Rousseau",
+      "url": "https://github.com/jpfiset/draft-jpfiset-attestationkey-eku/issues/5",
+      "state": "OPEN",
+      "author": "jpfiset",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "On the first line, replace \u201cNetwork Working Group\u201d by \u201cLimited Additional Mechanisms for PKIX and SMIME\u201d, which is actually the working group under which you want this document to be published.\n\n\nSpell out the acronym RATS in the abstract and on its first appearance under the section 1.\n\n\nUnder the section 1, on the first line replace \u201cKeyPurposeId\u201d by \u201cKeyPurposeIds\u201d.\n\n\nReplace the word \u201ccertificate\u201d by the word \u201ccertification\u201d in all four instances of the expression \u201ccertificate authority\u201d.\n\n\nUnder the section 6, the normative references should be listed in numerical order.\n\n\nThe references X.680 and X.690 are missing from the section 6.",
+      "createdAt": "2026-03-09T12:33:17Z",
+      "updatedAt": "2026-03-09T12:33:17Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": []
